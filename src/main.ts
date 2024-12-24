@@ -1,5 +1,5 @@
-import { time } from "console";
-import { serverHealth } from "./minecraft.ts";
+import { serverHealth } from "./util/minecraft.ts";
+import { terminateServer } from "./util/terminate.ts";
 
 const IP = '127.0.0.1';
 const PORT = 25565;
@@ -20,7 +20,6 @@ async function main() {
     }
 
     if (Date.now() - lastCase > SERVERSHUTDOWNLIMIT) {
-
-    
-    
+        terminateServer()
+    }
 }

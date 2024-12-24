@@ -1,0 +1,5 @@
+IP: '127.0.0.1'
+Port: 25565
+ServerShutdownLimit: 1800000
+ContainerID: "d"
+PathToWhitelist: "whitelist.json"

@@ -1,5 +1,8 @@
 import mc from 'npm:minecraft-protocol';
 
+const PATHTOWHITELIST = "/home/nawaf/Documents/GitHub/dimmcie/minecraft/data/whitelist.json"
+
+
 export class PlaceHolderServer {
 
     private server: mc.Server;
@@ -43,7 +46,6 @@ export class PlaceHolderServer {
    
 }
 
-const PATHTOWHITELIST = "/home/nawaf/Documents/GitHub/dimmcie/minecraft/data/whitelist.json"
 
 
 
