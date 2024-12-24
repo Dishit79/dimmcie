@@ -1,6 +1,6 @@
 import mc from 'npm:minecraft-protocol';
 
-export class MinecraftServer {
+export class PlaceHolderServer {
 
     private server: mc.Server;
 

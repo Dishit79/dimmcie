@@ -1,3 +1,4 @@
+import { constants } from "buffer";
 import Docker from "npm:dockerode";
 
 const docker = new Docker();
@@ -15,6 +16,7 @@ export function startServer() {
 
 export function stopServer() {
 
-    // later
+   const container = docker.getContainer(COTAINERID);
+   container.stop()
 
 }
