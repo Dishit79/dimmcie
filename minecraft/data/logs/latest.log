@@ -1,54 +1,44 @@
-[02:20:05] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21+35-2513; Oracle Corporation null) on Linux 6.9.3-76060903-generic (amd64)
-[02:20:05] [ServerMain/INFO]: [bootstrap] Loading Purpur 1.21.3-2358-ver/1.21.3@16ce24a (2024-12-04T12:57:44Z) for Minecraft 1.21.3
-[02:20:06] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
-[02:20:06] [ServerMain/INFO]: [PluginInitializerManager] Initialized 0 plugins
-[02:20:10] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[02:20:13] [ServerMain/INFO]: Loaded 1337 recipes
-[02:20:13] [ServerMain/INFO]: Loaded 1448 advancements
-[02:20:13] [Server thread/INFO]: Starting minecraft server version 1.21.3
-[02:20:13] [Server thread/INFO]: Loading properties
-[02:20:13] [Server thread/INFO]: This server is running Purpur version 1.21.3-2358-ver/1.21.3@16ce24a (2024-12-04T12:57:44Z) (Implementing API version 1.21.3-R0.1-SNAPSHOT)
-[02:20:13] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
-[02:20:14] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[02:20:14] [Server thread/INFO]: Using 4 threads for Netty based IO
-[02:20:15] [Server thread/INFO]: [MoonriseCommon] Paper is using 1 worker threads, 1 I/O threads
-[02:20:15] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using population gen parallelism: true
-[02:20:15] [Server thread/WARN]: [Pufferfish] SIMD operations are available for your server, but are not configured!
-[02:20:15] [Server thread/WARN]: [Pufferfish] To enable additional optimizations, add "--add-modules=jdk.incubator.vector" to your startup flags, BEFORE the "-jar".
-[02:20:15] [Server thread/WARN]: [Pufferfish] If you have already added this flag, then SIMD operations are not supported on your JVM or CPU.
-[02:20:15] [Server thread/WARN]: [Pufferfish] Debug: Java: 21, test run: true
-[02:20:15] [Server thread/INFO]: Default game type: SURVIVAL
-[02:20:15] [Server thread/INFO]: Generating keypair
-[02:20:15] [Server thread/INFO]: Starting Minecraft server on *:25565
-[02:20:15] [Server thread/INFO]: Using epoll channel type
-[02:20:15] [Server thread/INFO]: Paper: Using libdeflate (Linux x86_64) compression from Velocity.
-[02:20:15] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux x86_64) cipher from Velocity.
-[02:20:15] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
-[02:20:15] [Server thread/INFO]: Preparing level "world"
-[02:20:16] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
-[02:20:17] [Paper Common Worker #0/INFO]: [MCTypeRegistry] Initialising converters for DataConverter...
-[02:20:17] [Paper Common Worker #0/INFO]: [MCTypeRegistry] Finished initialising converters for DataConverter in 265.9ms
-[02:20:17] [Server thread/INFO]: Preparing spawn area: 0%
-[02:20:17] [Server thread/INFO]: Preparing spawn area: 0%
-[02:20:18] [Server thread/INFO]: Preparing spawn area: 0%
-[02:20:18] [Server thread/INFO]: Time elapsed: 1386 ms
-[02:20:18] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
-[02:20:18] [Server thread/INFO]: Preparing spawn area: 0%
-[02:20:18] [Server thread/INFO]: Time elapsed: 175 ms
-[02:20:18] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
-[02:20:18] [Server thread/INFO]: Preparing spawn area: 0%
-[02:20:18] [Server thread/INFO]: Time elapsed: 142 ms
-[02:20:18] [Server thread/INFO]: [spark] Starting background profiler...
-[02:20:18] [Server thread/INFO]: Done preparing level "world" (2.909s)
-[02:20:18] [Server thread/INFO]: Running delayed init tasks
-[02:20:18] [Server thread/INFO]: Done (14.432s)! For help, type "help"
-[02:24:35] [User Authenticator #0/INFO]: UUID of player Disit68 is 98a8021f-fb3b-4800-a483-e3f56ef19a49
-[02:24:35] [Server thread/INFO]: Disit68 joined the game
-[02:24:35] [Server thread/INFO]: Disit68[/172.18.0.1:57428] logged in with entity id 291 at ([world]-196.5, 70.0, -41.5)
-[02:24:38] [Server thread/INFO]: Disit68 lost connection: Disconnected
-[02:24:38] [Server thread/INFO]: Disit68 left the game
-[02:25:46] [User Authenticator #1/INFO]: UUID of player Disit68 is 98a8021f-fb3b-4800-a483-e3f56ef19a49
-[02:25:46] [Server thread/INFO]: Disit68 joined the game
-[02:25:46] [Server thread/INFO]: Disit68[/172.18.0.1:47212] logged in with entity id 356 at ([world]-196.5, 70.0, -41.5)
-[02:25:49] [Server thread/INFO]: Disit68 lost connection: Disconnected
-[02:25:49] [Server thread/INFO]: Disit68 left the game
+[06:17:49] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21+35-2513; Oracle Corporation null) on Linux 6.9.3-76060903-generic (amd64)
+[06:17:49] [ServerMain/INFO]: [bootstrap] Loading Purpur 1.21.3-2358-ver/1.21.3@16ce24a (2024-12-04T12:57:44Z) for Minecraft 1.21.3
+[06:17:50] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[06:17:50] [ServerMain/INFO]: [PluginInitializerManager] Initialized 0 plugins
+[06:17:55] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[06:17:57] [ServerMain/INFO]: Loaded 1337 recipes
+[06:17:57] [ServerMain/INFO]: Loaded 1448 advancements
+[06:17:57] [Server thread/INFO]: Starting minecraft server version 1.21.3
+[06:17:57] [Server thread/INFO]: Loading properties
+[06:17:57] [Server thread/INFO]: This server is running Purpur version 1.21.3-2358-ver/1.21.3@16ce24a (2024-12-04T12:57:44Z) (Implementing API version 1.21.3-R0.1-SNAPSHOT)
+[06:17:58] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[06:17:58] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[06:17:58] [Server thread/INFO]: Using 4 threads for Netty based IO
+[06:17:59] [Server thread/INFO]: [MoonriseCommon] Paper is using 1 worker threads, 1 I/O threads
+[06:17:59] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using population gen parallelism: true
+[06:17:59] [Server thread/WARN]: [Pufferfish] SIMD operations are available for your server, but are not configured!
+[06:17:59] [Server thread/WARN]: [Pufferfish] To enable additional optimizations, add "--add-modules=jdk.incubator.vector" to your startup flags, BEFORE the "-jar".
+[06:17:59] [Server thread/WARN]: [Pufferfish] If you have already added this flag, then SIMD operations are not supported on your JVM or CPU.
+[06:17:59] [Server thread/WARN]: [Pufferfish] Debug: Java: 21, test run: true
+[06:17:59] [Server thread/INFO]: Default game type: SURVIVAL
+[06:17:59] [Server thread/INFO]: Generating keypair
+[06:17:59] [Server thread/INFO]: Starting Minecraft server on *:25569
+[06:18:00] [Server thread/INFO]: Using epoll channel type
+[06:18:00] [Server thread/INFO]: Paper: Using libdeflate (Linux x86_64) compression from Velocity.
+[06:18:00] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux x86_64) cipher from Velocity.
+[06:18:00] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[06:18:00] [Server thread/INFO]: Preparing level "world"
+[06:18:00] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[06:18:01] [Paper Common Worker #0/INFO]: [MCTypeRegistry] Initialising converters for DataConverter...
+[06:18:01] [Paper Common Worker #0/INFO]: [MCTypeRegistry] Finished initialising converters for DataConverter in 288.5ms
+[06:18:01] [Server thread/INFO]: Preparing spawn area: 0%
+[06:18:01] [Server thread/INFO]: Preparing spawn area: 0%
+[06:18:02] [Server thread/INFO]: Preparing spawn area: 0%
+[06:18:02] [Server thread/INFO]: Time elapsed: 1480 ms
+[06:18:02] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[06:18:02] [Server thread/INFO]: Preparing spawn area: 0%
+[06:18:02] [Server thread/INFO]: Time elapsed: 244 ms
+[06:18:02] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[06:18:02] [Server thread/INFO]: Preparing spawn area: 0%
+[06:18:02] [Server thread/INFO]: Time elapsed: 135 ms
+[06:18:02] [Server thread/INFO]: [spark] Starting background profiler...
+[06:18:02] [Server thread/INFO]: Done preparing level "world" (2.899s)
+[06:18:02] [Server thread/INFO]: Running delayed init tasks
+[06:18:02] [Server thread/INFO]: Done (14.417s)! For help, type "help"

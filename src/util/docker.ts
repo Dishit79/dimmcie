@@ -1,22 +1,20 @@
-import { constants } from "buffer";
-import Docker from "npm:dockerode";
+import { getEnvVaribles } from "./config.ts";
+import Docker from "https://deno.land/x/denocker/index.ts"
 
-const docker = new Docker();
-
-const COTAINERID = "minecraft";
-
+const docker = new Docker("/var/run/docker.sock");
+const ENV = getEnvVaribles()
 
 
+export async function startServer() {
 
-export function startServer() {
-
-    const container = docker.getContainer(COTAINERID);
-    container.start()
+    await docker.containers.start(ENV.CONTAINERID)
+    console.log("Starting server...")
 }
 
 export function stopServer() {
 
-   const container = docker.getContainer(COTAINERID);
-   container.stop()
+   docker.containers.stop(ENV.CONTAINERID)
+   console.log("Stopping server...")
 
 }
+

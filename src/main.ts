@@ -1,25 +1,58 @@
 import { serverHealth } from "./util/minecraft.ts";
-import { terminateServer } from "./util/terminate.ts";
+import { getEnvVaribles, sleep } from "./util/config.ts";
+import { PlaceHolderServer } from "./placeholderserver.ts";
+import { stopServer } from "./util/docker.ts";
 
-const IP = '127.0.0.1';
-const PORT = 25565;
-const SERVERSHUTDOWNLIMIT = 1800000
+const ENV = getEnvVaribles()
+console.log( ENV )
+let lastCase = 999
 
-let lastCase:number = 999
+const placeholderServer = new PlaceHolderServer()
+
 
 async function main() {
 
-    const serverStat =  await serverHealth(IP, PORT)
+    const serverStat =  await serverHealth( ENV.IP, ENV.PORT )
 
-    if (serverStat) {
+    console.log("Start cycle")
+
+    if (serverStat == 2) {
+        console.log("Server health is good. Passing...")
         return
     }
 
-    if (lastCase == 999) {
-        lastCase = Date.now()
+    if (serverStat == 1) {
+
+        if (lastCase == 999) {
+            console.log("Server is idle. Starting shutdown countdown...")
+            lastCase = Date.now()
+        }
+
+        if (Date.now() - lastCase > ENV.SERVERSHUTDOWNLIMIT) {
+            console.log("Server reached end of life. Shutting down...")
+            stopServer()
+            sleep(1000)
+            console.log("Server stopped. Starting placeholder server...")
+            placeholderServer.init()
+            lastCase = 999
+        }
+    }
+     
+    else {
+        if ( placeholderServer.running == false) {
+            console.log("Server is offline. Starting placeholder server...")
+            lastCase = 999
+            placeholderServer.init()
+        } else {
+            console.log("Placeholder server is already running.")
+        }
+
     }
 
-    if (Date.now() - lastCase > SERVERSHUTDOWNLIMIT) {
-        terminateServer()
-    }
 }
+
+main()
+
+Deno.cron("test", "*/5 * * * *", () => {
+    main()
+})

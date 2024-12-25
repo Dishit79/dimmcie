@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "@bearz/dotenv": "jsr:@bearz/dotenv@^0.0.2",
+    "@minecraft/minecraftstatuspinger": "jsr:@minecraft/minecraftstatuspinger@^1.2.1"
+  }
+}
