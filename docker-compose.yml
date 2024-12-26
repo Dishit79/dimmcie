@@ -1,0 +1,20 @@
+services:
+  dimmcie:
+    image: denoland/deno:2.1.4
+    user: 1000:1000
+    ports:
+      - "8000:8000"
+    volumes:
+      - PATH/dimmcie/src:/app
+    working_dir: /app
+    environment:
+      - name=value
+    command: deno run --allow-all --unstable-cron main.ts
+  
+  proxy:
+    image:  ghcr.io/minekube/gate:latest
+    container_name: minecraft-proxy
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+    - PATH-TO-CONFIG/config.yml:/config.yml
