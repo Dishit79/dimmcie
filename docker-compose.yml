@@ -5,7 +5,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - PATH/dimmcie/src:/app
+      - /server/dimmcie/src:/app
     working_dir: /app
     environment:
       - name=value
@@ -17,4 +17,4 @@ services:
     restart: unless-stopped
     network_mode: host
     volumes:
-    - PATH-TO-CONFIG/config.yml:/config.yml
+    - /server/dimmcie/config.yml:/config.yml
