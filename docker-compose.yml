@@ -6,9 +6,15 @@ services:
       - "8000:8000"
     volumes:
       - /server/dimmcie/src:/app
+      - /var/run/docker.sock:/var/run/docker.sock
     working_dir: /app
     environment:
-      - name=value
+      - IP=LOCALHOST
+      - PORT=25569
+      - SERVERSHUTDOWNLIMIT=180000
+      - CONTAINERID="fa257758aefe"
+      - PATHTOWHITELIST="/home/nawaf/Documents/GitHub/dimmcie/minecraft/data/whitelist.json"
+      - RCONPORT=25575
     command: deno run --allow-all --unstable-cron main.ts
   
   proxy:
