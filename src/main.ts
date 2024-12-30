@@ -1,5 +1,5 @@
 import { serverHealth } from "./util/minecraft.ts";
-import { getEnvVaribles, sleep } from "./util/config.ts";
+import { getEnvVaribles, sleep, log } from "./util/config.ts";
 import { PlaceHolderServer } from "./placeholderserver.ts";
 import { stopServer } from "./util/docker.ts";
 
@@ -14,25 +14,24 @@ async function main() {
 
     const serverStat =  await serverHealth( ENV.IP, ENV.PORT )
 
-    console.log("Start cycle")
+    log("Doing Checks...")
 
     if (serverStat == 2) {
-        console.log("Server health is good. Passing...")
+        log("Server health is good. Passing...")
         return
     }
 
     if (serverStat == 1) {
 
         if (lastCase == 999) {
-            console.log("Server is idle. Starting shutdown countdown...")
+            log("Server is idle. Starting shutdown countdown...")
             lastCase = Date.now()
-        }
-
-        if (Date.now() - lastCase > ENV.SERVERSHUTDOWNLIMIT) {
-            console.log("Server reached end of life. Shutting down...")
+        } 
+        else if (Date.now() - lastCase > ENV.SERVERSHUTDOWNLIMIT) {
+            log("Server reached end of life. Shutting down...")
             stopServer()
-            sleep(1000)
-            console.log("Server stopped. Starting placeholder server...")
+            await sleep(40000)
+            log("Server stopped. Starting placeholder server...")
             placeholderServer.init()
             lastCase = 999
         }
@@ -40,11 +39,11 @@ async function main() {
      
     else {
         if ( placeholderServer.running == false) {
-            console.log("Server is offline. Starting placeholder server...")
+            log("Server is offline. Starting placeholder server...")
             lastCase = 999
             placeholderServer.init()
         } else {
-            console.log("Placeholder server is already running.")
+            log("Placeholder server is already running.")
         }
 
     }
@@ -53,6 +52,6 @@ async function main() {
 
 main()
 
-Deno.cron("test", "*/5 * * * *", () => {
+Deno.cron("test", ENV.CRON, () => {
     main()
 })
