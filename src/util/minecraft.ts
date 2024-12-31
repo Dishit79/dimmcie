@@ -1,6 +1,6 @@
 import * as mc from "@minecraft/minecraftstatuspinger";
 import { getContainerStatus } from "./docker.ts";
-import { getEnvVaribles } from "./config.ts";
+import { getEnvVaribles, log } from "./config.ts";
 
 // 2 = online healthy
 // 1 = online unhealthy
