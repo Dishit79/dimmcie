@@ -89,7 +89,7 @@ export class PlaceHolderServer {
 
 async function terminateLoop() {
 
-    const health = await serverHealth(ENV.PORT)
+    const health = await serverHealth()
 
     if (health != 0) {
         return false

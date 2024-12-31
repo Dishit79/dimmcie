@@ -25,17 +25,17 @@ config:
       # Match the virtual host address to the backend server.
       - host: localhost
         # The backend server to connect to if matched.
-        backend: localhost:25569
+        backend: [localhost:25569, localhost:25567]
         # The optional fallback status response when all backends of this route are offline.
 
         cachePingTTL: -1
         
         fallback:
           motd: |
-            §cLocalhost server is offline.
-            §eCheck back later!
+            §cServer is offline.
+            §fCheck back later or contact admin
           version:
-            name: '§cTry again later!'
+            name: '§cSomething went wrong'
             protocol: -1
           # The optional favicon to show in the server list (optimal 64x64).
           # Accepts a path of an image file or the base64 data uri.
@@ -83,6 +83,7 @@ connect:
   # enable it and get empowered by the additional network services
   # and by the growing community in this ecosystem.
   enabled: false
+  name: sound-aruba
   # The endpoint name is a globally unique identifier of your server.
   # If Connect is enabled, but no name is specified a random name is
   # generated on every restart (only recommended for testing).

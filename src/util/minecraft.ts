@@ -1,25 +1,33 @@
 import * as mc from "@minecraft/minecraftstatuspinger";
 import { getContainerStatus } from "./docker.ts";
-
+import { getEnvVaribles } from "./config.ts";
 
 // 2 = online healthy
 // 1 = online unhealthy
 // 0 = offline
+const ENV = getEnvVaribles()
 
+export async function serverHealth(): Promise<number> {
 
-export async function serverHealth(port : number): Promise<number> {
-
-    const [conStatus, host] = await getContainerStatus()
-
-    if (conStatus == false) {
-        return 0
+    // This bullshitery is done to see if the docker-compose actually has networkmode: host enabled or not 
+    let host = ""
+    if (ENV.IP == undefined || ENV.IP == null) {
+        const conStatus = await getContainerStatus()
+        host = conStatus[1]
+        const status = conStatus[0]
+       
+        if (status == false) {
+            return 0
+        }
+    } else {
+        host = ENV.IP
     }
-    
-   try {
+
+    try {
         const server = await mc.lookup(
             {
                 host: host,
-                port: port
+                port: ENV.PORT
             }
         )
         // console.log(server)
@@ -38,8 +46,7 @@ export async function serverHealth(port : number): Promise<number> {
         }
         
     } catch (_error) {
-        // log('Error pinging server');
-        console.log(_error)
+        log('Error pinging server');
         return 0;
     }
 }

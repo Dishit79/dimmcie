@@ -1,26 +1,27 @@
 services:
   dimmcie:
-    image: denoland/deno:2.1.4
-    user: 1000:1000
+    image: dimmcie
+    container_name: dimmcie
+    network_mode: host
     ports:
-      - "8000:8000"
-    volumes:
-      - /server/dimmcie/src:/app
-      - /var/run/docker.sock:/var/run/docker.sock
+      - "25567:25567"
     working_dir: /app
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/nawaf/Documents/GitHub/dimmcie/minecraft/data/whitelist.json:/whitelist.json
     environment:
-      - IP=LOCALHOST
       - PORT=25569
-      - SERVERSHUTDOWNLIMIT=180000
-      - CONTAINERID="fa257758aefe"
-      - PATHTOWHITELIST="/home/nawaf/Documents/GitHub/dimmcie/minecraft/data/whitelist.json"
-      - RCONPORT=25575
-    command: deno run --allow-all --unstable-cron main.ts
-  
+      - SERVERSHUTDOWNLIMIT=60000 
+      - CONTAINERNAME=minecraft-server
+      - PATHTOWHITELIST=/whitelist.json
+      - CRON=*/1 * * * *
+
   proxy:
     image:  ghcr.io/minekube/gate:latest
     container_name: minecraft-proxy
     restart: unless-stopped
     network_mode: host
+    ports:
+    - "25565:25565"
     volumes:
-    - /server/dimmcie/config.yml:/config.yml
+    - /home/nawaf/Documents/GitHub/dimmcie/config.yml:/config.yml

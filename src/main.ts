@@ -12,7 +12,7 @@ const placeholderServer = new PlaceHolderServer()
 
 async function main() {
 
-    const serverStat =  await serverHealth(ENV.PORT)
+    const serverStat =  await serverHealth()
 
     log("Doing Checks...")
 

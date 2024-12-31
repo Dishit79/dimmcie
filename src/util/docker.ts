@@ -71,4 +71,4 @@ export function stopServer() {
 }
 
 
-await getContainerStatus()
+// await getContainerStatus()
