@@ -8,13 +8,17 @@ export function getEnvVaribles(): Record<string, any> {
     if (existsSync(".env")) {
         const configFile = readFileSync('.env', 'utf8');
 
+        // log('Loading environment variables from .env file...');
+
         const config = parseDocument(configFile);
         return config.toObject();   
     } else {
 
+        // log('Loading environment variables from environment variables...');
+        
         const IP = Deno.env.get('IP')
-        const PORT = Deno.env.get('PORT')
-        const SERVERSHUTDOWNLIMIT = Deno.env.get('SERVERSHUTDOWNLIMIT')
+        const PORT = Number(Deno.env.get('PORT'));
+        const SERVERSHUTDOWNLIMIT = Number(Deno.env.get('SERVERSHUTDOWNLIMIT'));
         const PATHTOWHITELIST = Deno.env.get('PATHTOWHITELIST')
         const CONTAINERNAME = Deno.env.get('CONTAINERNAME')
         const CRON = Deno.env.get('CRON')
@@ -30,11 +34,6 @@ export function getEnvVaribles(): Record<string, any> {
         }
     }
 }
-
-export async function sleep(ms:number): Promise<void> {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 export function log(message: string, ...args: any[]): void {
     console.log(`[${new Date().toLocaleString()}] ${message}`, ...args);
 }

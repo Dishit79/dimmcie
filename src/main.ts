@@ -1,5 +1,5 @@
 import { serverHealth } from "./util/minecraft.ts";
-import { getEnvVaribles, sleep, log } from "./util/config.ts";
+import { getEnvVaribles, log } from "./util/config.ts";
 import { PlaceHolderServer } from "./placeholderserver.ts";
 import { stopServer } from "./util/docker.ts";
 
@@ -12,7 +12,7 @@ const placeholderServer = new PlaceHolderServer()
 
 async function main() {
 
-    const serverStat =  await serverHealth( ENV.IP, ENV.PORT )
+    const serverStat =  await serverHealth(ENV.PORT)
 
     log("Doing Checks...")
 
@@ -30,7 +30,6 @@ async function main() {
         else if (Date.now() - lastCase > ENV.SERVERSHUTDOWNLIMIT) {
             log("Server reached end of life. Shutting down...")
             stopServer()
-            await sleep(40000)
             log("Server stopped. Starting placeholder server...")
             placeholderServer.init()
             lastCase = 999
