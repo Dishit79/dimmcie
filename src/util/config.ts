@@ -37,3 +37,8 @@ export function getEnvVaribles(): Record<string, any> {
 export function log(message: string, ...args: any[]): void {
     console.log(`[${new Date().toLocaleString()}] ${message}`, ...args);
 }
+
+export function getFavicon(file : string) {
+    const favicon = readFileSync(`./util/img/${file}.txt`, 'utf8')
+    return favicon
+}

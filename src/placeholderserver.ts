@@ -1,9 +1,11 @@
 import mc from 'npm:minecraft-protocol';
-import { getEnvVaribles, log } from "./util/config.ts";
+import { getEnvVaribles, log, getFavicon } from "./util/config.ts";
 import { startServer } from "./util/docker.ts"; 
 import { serverHealth } from "./util/minecraft.ts";
 const ENV = getEnvVaribles()
 
+const sleepFav = getFavicon("sleep")
+const wakingFav = getFavicon("waking")
 
 export class PlaceHolderServer {
 
@@ -20,7 +22,8 @@ export class PlaceHolderServer {
             host: '0.0.0.0',      // Bind to all available network interfaces
             port: 25567, // Default Minecraft port
             version: false,    // Match supported Minecraft version
-            motd: 'Server is asleep zzz... \nJoin server to start',
+            motd: '\u00A7cServer is asleep... \u00A7r\nJoin server to start.',
+            favicon: sleepFav,
             maxPlayers: 0,       // Set the maximum number of players
         });
 
@@ -49,11 +52,12 @@ export class PlaceHolderServer {
         });
     }
 
-    private async setServerEndCycle() {
+    private setServerEndCycle() {
         if (this.server == null) {
             return
         }
-        this.server.motd = 'server is waking up'
+        this.server.motd = '\u00A73Server is waking up!! :D\u00A7r\nPlease wait couple seconds...'
+        this.server.favicon = wakingFav
     }
     private terminateProcess() {
         if (this.server == null) {
