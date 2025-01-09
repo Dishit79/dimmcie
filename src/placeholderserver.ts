@@ -12,6 +12,7 @@ export class PlaceHolderServer {
     private server: mc.Server | null = null
     public running: boolean = false
     private endCycle: number = 0
+    private startJavaServer: boolean = false
     constructor() {
 
     }
@@ -20,7 +21,7 @@ export class PlaceHolderServer {
         this.server = mc.createServer({
             'online-mode': false, // Disable online authentication   
             host: '0.0.0.0',      // Bind to all available network interfaces
-            port: 25567, // Default Minecraft port
+            port: 25567, // Minecraft port
             version: false,    // Match supported Minecraft version
             motd: '\u00A7cServer is asleep... \u00A7r\nJoin server to start.',
             favicon: sleepFav,
@@ -30,15 +31,21 @@ export class PlaceHolderServer {
         log('Placeholder Server started.');
         this.running = true
 
-        this.server.on('login', async (client) => {
+        this.server.on('playerJoin', async (client) => {
             const username = client.username;
             console.log(`Player joined: ${username}`);
+
+            if (this.startJavaServer) {
+                client.end('The server is already starting!')
+            }
 
             if (await checkUsername(username)) {
                 // Begin server temination
                 this.terminateProcess()
+                this.startJavaServer = true
+                client.end("The server is now starting!")
             }
-            client.end('You have been kicked from the server.');
+            client.end('You don\'t have permission to start this server.');
         });
 
         this.server.on('error', (error) => {
@@ -73,15 +80,18 @@ export class PlaceHolderServer {
             if (tmp) {
                 this.server?.close()
                 this.running = false
+                this.startJavaServer = false
             } else {
                 this.endCycle += 1
                 if (this.endCycle > 5) {
                     clearTimeout();
+                    this.running = false
+                    this.startJavaServer = false
                     log('Server terminated due to end cycle limit.');
                     return;                                   
                 }
             }
-        }, 10000)
+        }, 300000)
     }
 
 }
@@ -110,7 +120,6 @@ async function getWhitelist(): Promise<string[]> {
         return [];
     }
 }
-
 
 async function checkUsername(username: string): Promise<boolean> {
     const whitelist = await getWhitelist();
