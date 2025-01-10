@@ -31,7 +31,7 @@ export class PlaceHolderServer {
         log('Placeholder Server started.');
         this.running = true
 
-        this.server.on('playerJoin', async (client) => {
+        this.server.on('login', async (client) => {
             const username = client.username;
             console.log(`Player joined: ${username}`);
 

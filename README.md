@@ -10,7 +10,6 @@ Dimmcie is software that dynamically starts your Minecraft server when there is 
 Dimmcie runs a placeholder server. When a player joins, the placeholder server checks the player against the whitelist. If the player is allowed, Dimmcie spins up the main Minecraft server (hosted in a Docker container). Every few minutes (defined by an environment variable), it checks server activity; if the server is empty, Dimmcie shuts it down.
 
 ---
-fhfhfhfhf  ds sd sd s
 
 ## Dimmcie Deployment
 
