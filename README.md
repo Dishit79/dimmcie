@@ -1,4 +1,5 @@
-# Dimmcie  
+# Dimmcie 
+(*/ˈdɪm.tʃi/*) (dimm chi)
 _Minecraft Server on Demand_
 
 Dimmcie is software that dynamically starts your Minecraft server when there is player activity and shuts it down when idle. This helps reduce power consumption and saves CPU resources.
