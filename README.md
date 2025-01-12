@@ -97,7 +97,7 @@ services:
 ## Images
 
 ### Server Sleep Page  
-![Sleep page](https://imgur.com/gWXW1Bj.png)
+![Sleep page](https://imgur.com/HoabsMy.png)
 
 ### Server Wake Page  
-![Wake page](https://imgur.com/Zk5pDOf.png)
+![Wake page](https://imgur.com/2fCVG8g.png)
