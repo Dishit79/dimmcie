@@ -66,6 +66,16 @@ export class PlaceHolderServer {
         this.server.motd = '\u00A73Server is waking up!! :D\u00A7r\nPlease wait couple seconds...'
         this.server.favicon = wakingFav
     }
+
+    check() {
+        if (this.server == null) {
+            return
+        }
+        this.server.motd= '\u00A7cServer is asleep... \u00A7r\nJoin server to start.'
+        this.server.favicon=sleepFav
+    }
+
+
     private terminateProcess() {
         if (this.server == null) {
             return

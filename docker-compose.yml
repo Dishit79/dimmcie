@@ -3,14 +3,12 @@ services:
     image: dimmcie
     container_name: dimmcie
     network_mode: host
-    ports:
-      - "25567:25567"
-    working_dir: /app
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /home/nawaf/Documents/GitHub/dimmcie/minecraft/data/whitelist.json:/whitelist.json
     environment:
       - PORT=25569
+      - IP=localhost
       - SERVERSHUTDOWNLIMIT=60000 
       - CONTAINERNAME=minecraft-server
       - PATHTOWHITELIST=/whitelist.json
@@ -21,7 +19,5 @@ services:
     container_name: minecraft-proxy
     restart: unless-stopped
     network_mode: host
-    ports:
-    - "25565:25565"
     volumes:
     - /home/nawaf/Documents/GitHub/dimmcie/config.yml:/config.yml
